@@ -9,7 +9,7 @@ services:
     environment:
       - JAVA_OPTS=
         -DEUREKA_SERVER=http://discovery-service:8761/eureka
-        -Dspring.cloud.config.server.native.searchLocations=/Users/shengmingfu/Workplace/healthcare-springboot-microservice/app-config
+        -Dspring.cloud.config.server.native.searchLocations=/anywhereYouReplace/app-config
     depends_on:
       - discovery-service
     ports:
@@ -20,7 +20,7 @@ services:
     environment:
       - JAVA_OPTS=
         -DEUREKA_SERVER=http://discovery-service:8761/eureka
-        -Dspring.cloud.config.server.native.searchLocations=/Users/shengmingfu/Workplace/healthcare-springboot-microservice/app-config
+        -Dspring.cloud.config.server.native.searchLocations=/anywhereYouReplace/app-config
       depends_on:
         - discovery-service
         - config-service
