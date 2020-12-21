@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: enrollee-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/healthcaredb
+    username: postgres
+    password: devppostgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+  jackson:
+    date-format: yyyy-MM-dd
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+server:
+  port: 8081
+
+

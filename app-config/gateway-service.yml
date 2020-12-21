@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway-service
+
+zuul:
+  routes:
+    discovery:
+      path: /healthcare/api-docs/**
+      url: http://localhost:8761
+    apply-service:
+      path: /healthcare/apply-service/**
+      url: http://localhost:8081
