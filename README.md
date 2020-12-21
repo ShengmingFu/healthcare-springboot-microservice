@@ -22,14 +22,16 @@
     - Modify ddl-auto:none to ddl-auto:create and datasource in ./app-config/enrollee-service.yml
       ![alt text](static/pictures/datasource.png)
     
-2. Copy and replace app-config to .../Desktop/dev/
+2. Copy and replace app-config to .../Desktop/dev/ and update search-locations path in 
+   config-service/src/main/resources/application.yml
+   ![alt text](static/pictures/config-application-properties.png)
 4. Run config-service
 5. Run discovery-service
    ![alt text](static/pictures/Eureka.png)
 6. Run enrollee-service and gateway-service ...
 7. Revert the change in app-config/enrollee-service.yml for ddl-auto value to be none(ddl-auto:none)
 8. SwaggerUI : http://localhost:8081/swagger-ui/index.html?configUrl=/api-docs/swagger-config#/
-   ![alt text](static/pictures/SwaggerUI.png)
+   ![alt text](static/pictures/api-doc.png)
    
 
 

@@ -10,4 +10,4 @@ spring:
         service-id: config-service
       server:
         native:
-          search-locations: file:///Users/shengmingfu/Workplace/healthcare-springboot-microservice/app-config
+          search-locations: file:///anywhereYouReplace/app-config
