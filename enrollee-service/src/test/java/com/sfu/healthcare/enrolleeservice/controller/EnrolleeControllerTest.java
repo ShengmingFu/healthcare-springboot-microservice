@@ -36,10 +36,10 @@ public class EnrolleeControllerTest {
     @Test
     void getAllEnrollees() throws Exception {
         List<Enrollee> enrolleeList = new ArrayList<Enrollee>();
-//        enrolleeList.add(new Enrollee(1L,"Scoot", true, LocalDate.now(), null,null));
-//        enrolleeList.add(new Enrollee(2L,"Mary", false, LocalDate.now(), null, null));
-        enrolleeList.add(new Enrollee(1L,"Scoot", true, LocalDate.now(), null));
-        enrolleeList.add(new Enrollee(2L,"Mary", false, LocalDate.now(), null));
+        enrolleeList.add(new Enrollee(1L,"Scoot", true, LocalDate.now(), null,null));
+        enrolleeList.add(new Enrollee(2L,"Mary", false, LocalDate.now(), null, null));
+//        enrolleeList.add(new Enrollee(1L,"Scoot", true, LocalDate.now(), null));
+//        enrolleeList.add(new Enrollee(2L,"Mary", false, LocalDate.now(), null));
         ResponseEntity<List<Enrollee>> responseEntity = new ResponseEntity<>(enrolleeList, HttpStatus.OK);
 
 
