@@ -20,8 +20,8 @@ class EnrolleeServiceTest {
 
     @Test
     void findAll() {
-//        Enrollee enrollee = new Enrollee(1L,"Scoot", true, LocalDate.now(), null, null);
-        Enrollee enrollee = new Enrollee(1L,"Scoot", true, LocalDate.now(), null);
+        Enrollee enrollee = new Enrollee(1L,"Scoot", true, LocalDate.now(), null, null);
+//        Enrollee enrollee = new Enrollee(1L,"Scoot", true, LocalDate.now(), null);
         enrolleeRepository.save(enrollee);
         EnrolleeService service = new EnrolleeService(enrolleeRepository);
 
