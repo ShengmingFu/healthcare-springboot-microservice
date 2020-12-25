@@ -2,10 +2,11 @@ package com.sfu.healthcare.enrolleeservice.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.bytebuddy.build.ToStringPlugin;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -24,6 +25,7 @@ public class Dependent {
     private String name;
     @NotNull(message = "Dependent birth date is required")
     @JsonFormat
+    @JsonSerialize(using = ToStringSerializer.class)
     private LocalDate birthDate;
 
     @ManyToOne(fetch = FetchType.LAZY)

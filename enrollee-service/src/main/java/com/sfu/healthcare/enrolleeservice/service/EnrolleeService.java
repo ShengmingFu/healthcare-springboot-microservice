@@ -56,9 +56,9 @@ public class EnrolleeService {
     public ResponseEntity<Enrollee> updateEnrollee(int id, Enrollee enrollee) {
         return enrolleeRepository.findById(Long.valueOf(id))
                 .map(e -> {
-                    enrollee.setId(Long.valueOf(id));
                     Enrollee saveEnrollee = null;
                     try {
+                        enrollee.setId(Long.valueOf(id));
                         saveEnrollee = enrolleeRepository.save(enrollee);
                     } catch (Exception exception) {
                         return ResponseEntity.badRequest().body(saveEnrollee);
@@ -113,7 +113,7 @@ public class EnrolleeService {
         return ResponseEntity.badRequest().build();
     }
 
-    public ResponseEntity<Void> deleteDependentByDenpendentId(int enrolleeId, int dependentId) {
+    public ResponseEntity<Void> deleteDependentByDependentId(int enrolleeId, int dependentId) {
         Optional<Enrollee> enrolleeOpt = enrolleeRepository.findById(Long.valueOf(enrolleeId));
 
         if (enrolleeOpt.isPresent()) {
@@ -135,9 +135,9 @@ public class EnrolleeService {
         if (enrollee.isPresent()) {
             return dependentRepository.findById(Long.valueOf(dependentId))
                     .map(findDependent -> {
-                        dependent.setEnrollee(enrollee.get());
-                        dependent.setId(Long.valueOf(dependentId));
                         try {
+                            dependent.setEnrollee(enrollee.get());
+                            dependent.setId(Long.valueOf(dependentId));
                             dependentRepository.save(dependent);
                         } catch (Exception e) {
                             return ResponseEntity.badRequest().body(dependent);
@@ -148,6 +148,4 @@ public class EnrolleeService {
 
         return ResponseEntity.badRequest().build();
     }
-
-
 }

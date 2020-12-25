@@ -108,7 +108,7 @@ public class EnrolleeController {
                     content = @Content)})
     @DeleteMapping("/{enrolleeId}/dependents/{dependentId}")
     public ResponseEntity<Void> deleteDependentByDependentId(@PathVariable("enrolleeId") int enrolleeId, @PathVariable("dependentId") int dependentId) {
-        return enrolleeService.deleteDependentByDenpendentId(enrolleeId, dependentId);
+        return enrolleeService.deleteDependentByDependentId(enrolleeId, dependentId);
     }
 
     @Operation(summary = "Update a dependent")
