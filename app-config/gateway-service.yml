@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 9092
 
 spring:
   application:
@@ -13,3 +13,11 @@ zuul:
     apply-service:
       path: /healthcare/apply-service/**
       url: http://localhost:8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
+    routes:
+      enabled: true
