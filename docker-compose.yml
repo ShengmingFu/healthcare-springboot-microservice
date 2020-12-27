@@ -1,26 +1,24 @@
-version: '1'
+version: '3.8'
 services:
-  discovery-service:
-    image: com.sfu.healthcare/enrollee-docker-discovery-service:0.0.1-SNAPSHOT
-    ports:
-      - 8761:8761
   config-service:
-    image: com.sfu.healthcare/enrollee-docker-config-service:0.0.1-SNAPSHOT
-    environment:
-      - JAVA_OPTS=
-        -DEUREKA_SERVER=http://discovery-service:8761/eureka
-        -Dspring.cloud.config.server.native.searchLocations=/anywhereYouReplace/app-config
-    depends_on:
-      - discovery-service
+    image: com.sfu.healthcare/enrollee-docker-config-service:v0
     ports:
       - 8088:8088
-
+  discovery-service:
+    image: com.sfu.healthcare/enrollee-docker-discovery-service:v0
+    ports:
+      - 8761:8761
   enrollee-service:
-    image: com.sfu.healthcare/enrollee-docker-enrollee-service:0.0.1-SNAPSHOT
-    environment:
-      - JAVA_OPTS=
-        -DEUREKA_SERVER=http://discovery-service:8761/eureka
-        -Dspring.cloud.config.server.native.searchLocations=/anywhereYouReplace/app-config
-      depends_on:
-        - discovery-service
-        - config-service
+    image: com.sfu.healthcare/enrollee-docker-enrollee-service:v0
+    ports:
+      - 8081:8081
+    depends_on:
+      - discovery-service
+      - config-service
+  gateway-service:
+    image: com.sfu.healthcare/enrollee-docker-gateway-service:v0
+    ports:
+      - 9092:9092
+    depends_on:
+      - discovery-service
+      - config-service

@@ -1,9 +1,9 @@
 #Dockerfile-Gatewayservice
 #========================================
-FROM openjdk:8-jdk-alpine
+FROM adoptopenjdk/openjdk14:ubi
 VOLUME /tmp
-ADD target/gateway-service.jar gateway.jar
+ADD target/*.jar gateway.jar
 ENV JAVA_OPTS=""
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/gateway.jar"]
-EXPOSE 8080
+ENTRYPOINT ["java","-jar","/gateway.jar"]
+EXPOSE 9092

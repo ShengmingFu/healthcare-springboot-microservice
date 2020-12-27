@@ -10,4 +10,4 @@ spring:
         service-id: config-service
       server:
         native:
-          search-locations: file:///anywhereYouReplace/app-config
+          search-locations: [classpath:/, classpath:/config, file]

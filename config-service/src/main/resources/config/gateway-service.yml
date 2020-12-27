@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 9092
 
 spring:
   application:
@@ -8,8 +8,8 @@ spring:
 zuul:
   routes:
     discovery:
-      path: /healthcare/api-docs/**
+      path: /v0/discovery/**
       url: http://localhost:8761
     apply-service:
-      path: /healthcare/apply-service/**
+      path: /v0/apply-service/**
       url: http://localhost:8081

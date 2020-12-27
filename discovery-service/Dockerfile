@@ -1,9 +1,9 @@
 #Dockerfile-Discoveryservice
 #========================================
-FROM openjdk:8-jdk-alpine
+FROM adoptopenjdk/openjdk14:ubi
 VOLUME /tmp
-ADD target/discovery-service.jar discovery.jar
+EXPOSE 8761
+ADD target/*.jar discovery.jar
 ENV JAVA_OPTS=""
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/discovery.jar"]
-EXPOSE 8761
+ENTRYPOINT ["java","-jar","/discovery.jar"]
