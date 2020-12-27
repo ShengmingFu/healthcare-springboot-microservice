@@ -1,9 +1,9 @@
 #Dockerfile-Configservice
 #========================================
-FROM openjdk:8-jdk-alpine
+FROM adoptopenjdk/openjdk14:ubi
 VOLUME /tmp
-ADD out/config-service.jar config.jar
+EXPOSE 8088
+ADD target/*.jar config.jar
 ENV JAVA_OPTS=""
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/config.jar"]
-EXPOSE 8088
+ENTRYPOINT ["java", "-jar", "config.jar"]

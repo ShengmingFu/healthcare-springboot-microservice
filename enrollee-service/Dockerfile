@@ -1,9 +1,9 @@
 #Dockerfile-Enrolleeservice
 #========================================
-FROM openjdk:8-jdk-alpine
+FROM adoptopenjdk/openjdk14:ubi
 VOLUME /tmp
-ADD out/enrollee-service.jar enrollee.jar
+ADD target/*.jar enrollee.jar
 ENV JAVA_OPTS=""
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/enrollee.jar"]
+ENTRYPOINT ["java","-jar","/enrollee.jar"]
 EXPOSE 8081
